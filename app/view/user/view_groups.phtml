@@ -1,0 +1,53 @@
+<?php include VIEW . 'header.phtml'; ?>
+<?php include VIEW . 'user'.DIRECTORY_SEPARATOR.'menu.phtml' ?>
+<div id="content" class="col-lg-10 col-sm-10">
+    <!-- content starts -->
+            <?php
+                if (key_exists('groups', $this->view_data)) {
+                    $message = "<div class=\"row well center\">\n";
+                    $message.= "<div class=\"alert alert-info\">\n";
+                    $message.= "Showing All Your Contacts\n";
+                    $message.= "</div>\n";
+                    
+                    echo $message;
+                    // for each patient in mypatients array
+                    foreach($this->view_data['groups'] as $group) {
+                        $gui = "<div class=\"well col-md-6 center login-box\">\n";
+                            $gui.= "<div class=\"alert alert-info\">\n";
+                                $gui.= "Contact";
+                            $gui.= "</div>";
+                            $gui.= "<div class=\"row\">";
+                                $gui.= "<div class=\"col-md-6\">";
+                                    $gui.= "<pre  font=\"roboto\">";
+                                        $gui.= "Name       : ".$group['gname'] . "<br>";
+                                    $gui.= "</pre>";
+                                $gui.= "</div>";
+                            $gui.= "</div>";
+                        $gui.= "<a class=\"btn btn-success\" href=\"#\">";
+                        $gui.= "<i class=\"glyphicon glyphicon-user icon-white\"></i>";
+			$gui.= "Add Contacts";
+                	$gui.= "</a>";
+                        $gui.= "<a class=\"btn btn-info\" href=\"#\">";
+			$gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+			$gui.= "Delete";
+                        $gui.= "</a>";
+                        $gui.= "</div>";
+                        
+                        echo $gui;
+                    }
+                    echo "</div>";
+                } else {
+                    $message = "<div class=\"row well center\">\n";
+                    $message.= "<div class=\"alert alert-info\">\n";
+                    $message.= "Seems you have no groups\n";
+                    $message.= "<a class=\"btn btn-info\" href=\"create_group\">";
+                    $message.= "Create Group";
+                    $message.= "</a>";
+                    $message.= "</div>\n";
+                    $message.= "</div>\n";
+                    echo $message;
+                }
+            ?>
+</div>
+<?php include VIEW . 'footer.phtml';
+

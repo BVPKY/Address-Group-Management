@@ -1,0 +1,91 @@
+<?php include VIEW . 'header.phtml'; ?>
+<?php include VIEW . 'user'.DIRECTORY_SEPARATOR.'menu.phtml'?>
+
+<div class="container top">
+	<div class="row">
+		<h2 class="signup text-center">Create A Contact</h2>
+		<hr class="divider">
+
+    	<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form id="basicBootstrapForm" class="form-horizontal" method="POST" action="">
+			    <div class="form-group">
+			        <label class="col-xs-3 control-label">Full name</label>
+			        <div class="col-xs-4">
+			            <input type="text" class="form-control" name="firstName" placeholder="First name" />
+			        </div>
+			    </div>
+
+			    <div class="form-group">
+			        <label class="col-xs-2 control-label">Address</label>
+			        <div class="col-xs-2">
+			            <input type="text" class="form-control" name="lini_1" placeholder="line_1" />
+			        </div>
+                                <div class="col-xs-2">
+			            <input type="text" class="form-control" name="city" placeholder="city" />
+			        </div>
+                                <div class="col-xs-2">
+			            <input type="text" class="form-control" name="state" placeholder="state" />
+			        </div>
+                                <div class="col-xs-2">
+			            <input type="text" class="form-control" name="country" placeholder="country" />
+			        </div>
+                                <div class="col-xs-2">
+                                    <input type="number" class="form-control" name="zipcode" placeholder="zipcode" />
+			        </div>
+			    </div>
+
+			    <div class="form-group">
+			        <label class="col-xs-3 control-label">E-mail</label>
+			        <div class="col-xs-5">
+			            <input type="text" class="form-control" name="email" placeholder="sample@inmar.com" />
+			        </div>
+			    </div>
+
+			    <div class="form-group">
+			        <label class="col-xs-3 control-label">Mobile</label>
+			        <div class="col-xs-5">
+			            <input type="number" class="form-control" name="mobile" placeholder="Mobile No." />
+			        </div>
+			    </div>
+
+			    <div class="form-group">
+			        <label class="col-xs-3 control-label">Gender</label>
+			        <div class="col-xs-6">
+			            <div class="radio">
+			                <label>
+			                    <input type="radio" name="gender" value="male" /> Male
+			                </label>
+			            </div>
+			            <div class="radio">
+			                <label>
+			                    <input type="radio" name="gender" value="female" /> Female
+			                </label>
+			            </div>
+			            <div class="radio">
+			                <label>
+			                    <input type="radio" name="gender" value="other" /> Other
+			                </label>
+			            </div>
+			        </div>
+			    </div>
+
+			    <div class="form-group">
+			        <label class="col-xs-3 control-label" id="captchaOperation"></label>
+			        <div class="col-xs-4">
+			            <input type="text" class="form-control" name="captcha" />
+			        </div>
+			    </div>
+
+			    <div class="form-group">
+			        <div class="col-xs-9 col-xs-offset-3">
+			            <button type="submit" class="btn btn-primary" name="btnCreate" value="Create">Create</button>
+			        </div>
+			    </div>
+			</form>
+			<div class="text-center">
+		    </div>
+		</div>
+	</div>
+</div>
+<?php include VIEW. 'footer.phtml';
+	

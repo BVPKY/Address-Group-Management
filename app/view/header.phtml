@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="<?php echo JS . 'validation.js'?>"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icons-->
+    <link rel="shortcut icon" href="<?php echo IMAGES . "favicon.ico" ?>"/>
+    <link rel="apple-touch-icon-precomposed" href="<?php echo IMAGES . "apple-touch-icon-57x57.png" ?>">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGES . "apple-touch-icon-114x114.png" ?>">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo IMAGES . "apple-touch-icon-72x72.png"?>">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo IMAGES . "apple-touch-icon-144x144.png"?>">
+    <title>inmarChar Application</title>
+    <!--Bootstrap CSS Files-->
+<!--    <link rel="stylesheet" type="text/css" href="<?php echo CSS . "bootstrap.min.css" ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS . "bootstrap-theme.min.css" ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS . "style.css" ?>">
+    -->
+    
+    <style type="text/css">
+        .container-fluid1{
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-inner">
+            <button type="button" class="navbar-toggle pull-left animated flip">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="account/login"> <img src="<?php echo IMAGES . "inmar-logo.png"; ?>" alt="inmar Logo"  class="hidden-xs"/>
+            </a>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a href="/account/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li><a href="/account/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    </ul>
+            </div>
+        </div>
+</div>
