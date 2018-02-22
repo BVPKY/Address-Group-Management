@@ -1,6 +1,7 @@
 <?php include VIEW . 'header.phtml'; ?>
 <?php include VIEW . 'user'.DIRECTORY_SEPARATOR.'menu.phtml' ?>
 <div id="content" class="col-lg-10 col-sm-10">
+    
             <?php
                 if (key_exists('contacts', $this->view_data)) {
                     $message = "<div class=\"row well center\">\n";
@@ -9,19 +10,19 @@
                     $message.= "</div>\n";
                     
                     echo $message;
-                    // for each patient in mypatients array
+                    // for each contact in contacts array
                     foreach($this->view_data['contacts'] as $contact) {
                         $gui = "<div class=\"well col-md-6 center login-box\">\n";
                             $gui.= "<div class=\"alert alert-info\">\n";
                                 $gui.= "Contact";
                             $gui.= "</div>";
                             $gui.= "<div class=\"row\">";
-                                $gui.= "<div class=\"col-md-6\">";
+                                $gui.= "<div class=\"col-md-12\">";
                                     $gui.= "<pre  font=\"roboto\">";
                                         $gui.= "Name       : ".$contact['name'] . "<br>";
                                         $gui.= "Gender     : ".$contact['gender']. "<br>";
                                         $gui.= "Mobile No. : ".$contact['mobile']. "<br>";
-                                        $gui.= "e-mail     : ".$contact['e-mail']. "<br>";
+                                        $gui.= "e-mail     : ".$contact['email']. "<br>";
                                         $gui.= "Address    : ".$contact['address']. "<br>";
                                         $gui.= "Zip Code   : ".$contact['zipcode']. "<br>";
                                     $gui.= "</pre>";
@@ -31,27 +32,37 @@
                         $gui.= "<i class=\"glyphicon glyphicon-user icon-white\"></i>";
 			$gui.= "Add To a Group";
                 	$gui.= "</a>";
-                        $gui.= "<a class=\"btn btn-info\" href=\"#\">";
+                        $gui.= "<a class=\"btn btn-info\" href=\"delete_contact/{$contact['contact_id']}\">";
 			$gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
 			$gui.= "Delete";
                         $gui.= "</a>";
-                        $gui.= "<a class=\"btn btn-info\" href=\"#\">";
-			$gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
-			$gui.= "Active/Deactive";
-                        $gui.= "</a>";
+                        if(strcmp($contact['status'], 'active') == 0) {
+                            $gui.= "<a class=\"btn btn-success\" href=\"/user/make_contact_passive/{$contact['contact_id']}\">";
+                            $gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+                            $gui.= "Make Passive";
+                            $gui.= "</a>";
+                        } else {
+                            $gui.= "<a class=\"btn btn-danger\" href=\"make_contact_active/{$contact['contact_id']}\">";
+                            $gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+                            $gui.= "Make Active";
+                            $gui.= "</a>";
+                        }
+                        
                         $gui.= "</div>";
                         echo $gui;
                     }
                     echo "</div>";
                 } else {
                     $message = "<div class=\"row well center\">\n";
-                    $message.= "<div class=\"alert alert-info\">\n";
-                    $message.= "Seems you have no contacts\n";
-                    $message.= "<a class=\"btn btn-info\" href=\"create_contact\">";
-                    $message.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
-                    $message.= "Create a Contact";
-                    $message.= "</a>";
-                    $message.= "</div>\n";
+                        $message.= "<div class=\"alert alert-info\">\n";
+                            $message.= "Seems you have no contacts\n";
+                            $message.= "<div>";
+                                $message.= "<a class=\"btn btn-info\" href=\"create_contact\">";
+                                $message.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+                                $message.= "Create a Contact";
+                                $message.= "</a>";
+                            $message.= "</div>";
+                        $message.= "</div>\n";
                     $message.= "</div>\n";
                     echo $message;
                 }

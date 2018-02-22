@@ -1,0 +1,107 @@
+<?php include VIEW . 'header.phtml'; ?>
+<?php include VIEW . 'user'.DIRECTORY_SEPARATOR.'menu.phtml'?>
+<script type="text/javascript">
+    $('#example').DataTable();   
+
+    $(document).ready(function(){
+        $('.example').DataTable( {
+            "scrollY": true,
+            "scrollX": true,
+            "paging"      : true,
+            "lengthChange": true,
+            "searching"   : true,
+            "ordering"    : true,
+            "info"        : true,
+            "autoWidth"   : true,
+            "order": [[ 0, "desc" ]]
+        });
+        $.fn.dataTable.ext.errMode = 'none';
+    });
+</script>
+<div class="container-fluid col-sm-9 col-lg-9">
+	<hr>
+	<div class="row">
+            <?php
+                if (key_exists('contacts', $this->view_data)) {
+                    $message = "<div class=\"row well center\">\n";
+                    $message.= "<div class=\"alert alert-info\">\n";
+                    $message.= "Showing All Your Contacts\n";
+                    $message.= "</div>\n";
+                    $message.= "<table id=\"example\" class=\"table table-striped table-bordered example\" cellspacing=\"0\" width=\"100%\">";
+                    $message.= "<thead>";
+                        $message.= "<tr>";
+                            $message.= "<th>Name</th>";
+                            $message.= "<th>E-mail</th>";
+                            $message.= "<th>Gender</th>";
+                            $message.= "<th>Phone no</th>";
+                            $message.= "<th>Address</th>";
+                            $message.= "<th>Status</th>";
+                            $message.= "<th>Action</th>";
+
+                        $message.= "</tr>";
+                    $message.= "</thead>";
+                    $message.= "<tfoot>";
+                        $message.= "<tr>";
+                            $message.= "<th>Name</th>";
+                            $message.= "<th>E-mail</th>";
+                            $message.= "<th>Gender</th>";
+                            $message.= "<th>Phone no</th>";
+                            $message.= "<th>Address</th>";
+                            $message.= "<th>Status</th>";
+                            $message.= "<th>Action</th>";
+                        $message.= "</tr>";
+                    $message.= "</tfoot>";
+                    $message.= "<tbody>";
+                    
+                    echo $message;                    
+                    
+                    // for each contact in contacts array
+                    foreach($this->view_data['contacts'] as $contact) {
+                            $gui = "<tr>";
+                            $gui.= "<td>".$contact['name']."</td>";
+                            $gui.= "<td>".$contact['email']."</td>";
+                            $gui.= "<td>".$contact['gender']."</td>";
+                            $gui.= "<td>".$contact['mobile']."</td>";
+                            $gui.= "<td>".$contact['address']."</td>";
+                            $gui.= "<td>";
+                                    if(strcmp($contact['status'], 'active') == 0) {
+                                        $gui.= "<a class=\"btn btn-success\" href=\"/user/make_contact_passive/{$contact['contact_id']}\">";
+                                        $gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+                                        $gui.= "Make Passive";
+                                        $gui.= "</a>";
+                                    } else {
+                                        $gui.= "<a class=\"btn btn-danger\" href=\"make_contact_active/{$contact['contact_id']}\">";
+                                        $gui.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+                                        $gui.= "Make Active";
+                                        $gui.= "</a>";
+                                    }
+                            $gui.= "</td>";
+                            $gui.= "<td>";
+                                    $gui.= "<button type=\"button\" class=\"btn btn-default btn-sm\">";
+                                        $gui.= "<span class=\"glyphicon glyphicon-edit\"></span> Edit";
+                                    $gui.= "</button>";
+                                    $gui.= "</td>";
+                        $gui.= "</tr>";
+                        echo $gui;
+                    }
+                    echo "</tbody></table>";
+                    
+                } else {
+                    $message = "<div class=\"row well center\">\n";
+                        $message.= "<div class=\"alert alert-info\">\n";
+                            $message.= "Seems you have no contacts\n";
+                            $message.= "<div>";
+                                $message.= "<a class=\"btn btn-info\" href=\"create_contact\">";
+                                $message.= "<i class=\"glyphicon glyphicon-edit icon-white\"></i>";
+                                $message.= "Create a Contact";
+                                $message.= "</a>";
+                            $message.= "</div>";
+                        $message.= "</div>\n";
+                    $message.= "</div>\n";
+                    echo $message;
+        
+                }
+            ?>
+	</div>
+</div>
+<?php include VIEW. 'footer.phtml';

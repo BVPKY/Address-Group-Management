@@ -1,0 +1,135 @@
+/* Fixed navbar with color */
+.navbar-default .navbar-toggle:focus {
+        background-color: inherit;
+    }
+
+    .navbar-default .navbar-toggle.active {
+        box-shadow: 0 0 7px rgb(0, 255, 40);
+        border: solid 1px white;
+    }
+.navbar {
+    overflow: hidden;
+    background-color: #38C5DA;
+    top: 0; 
+    width: 100%; 
+}
+.navbar-search {
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+
+.navbar img {
+    float: left;
+    position: relative;
+    height: 90px;
+    width: 120px;
+    margin-right: 5px;
+    top: -35px;
+}
+
+/* links that are present inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* mouse-over */
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+.navbar-inner .btn-group {
+    margin: 7px 5px 0 5px;
+}
+.btn-round {
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    font-size: 12px;
+    padding-top: 4px;
+}
+.pull-left {
+    float: left !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+.top{
+    padding-top: 20px;
+}
+.label,.glyphicon { margin-right:5px; }
+/*Text Center*/
+.text-center{
+  text-align: center;
+}
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+}
+.signup{
+    color: darkblue;
+    text-shadow: 2px 2px 2px #8C66F1;
+}
+body {
+    background: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.container-fluid1{
+        margin-right: auto;
+        margin-left: auto;
+    }
+.login-form {
+    margin-top: 60px;
+}
+
+form[role=login] {
+    color: #5d5d5d;
+    background: #f2f2f2;
+    padding: 26px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+    form[role=login] img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 35px;
+    }
+    form[role=login] input,
+    form[role=login] button {
+        font-size: 18px;
+        margin: 16px 0;
+    }
+    form[role=login] > div {
+        text-align: center;
+    }
+    
+.form-links {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 50px;
+}
+    .form-links a {
+        color: #fff;
+    }
+/* Footer with color */
+.copyright{
+    /*color: #38C5DA;*/
+    color: black;
+}
+
+.copyright p{
+    font-size:13px;
+    padding:15px 0 10px 0;
+}

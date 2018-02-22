@@ -38,16 +38,9 @@ class ReadableDatabase extends Database{
         // nullify the effect of escape sequences by putting \ before them
         $credentials->username =  $this->escapeString($credentials->username);
         
-        print_r($credentials);
-        
         $this->myQuery = "CALL check_user_exist( '{$credentials->username}', '{$credentials->password}');";        
-        
-        echo $this->myQuery;
-        
         $queryResult = $this->myconn->query($this->myQuery);
-        
-        print_r($queryResult);
-        
+                
         if($queryResult && mysqli_num_rows($queryResult) == 1) {
             // now we have the id of the user
             // lets take him to his account page
@@ -114,18 +107,18 @@ class ReadableDatabase extends Database{
     
     public function getUserContacts($userid) {
         $this->connect(); // open the conection
-
+        
         // call the procedure GET_USER(userid) to get the details of the user
         $this->myQuery = "CALL GET_USER_CONTACT('{$userid}');";
 
         // run the query
         $queryResult = $this->myconn->query($this->myQuery);
-
-        $this->disconnect();
+        
+        //echo mysqli_error($this->myconn);
         
         // if query result is success and number of rows are exactly one
         // then fetch the data
-        if($queryResult && mysqli_num_rows($queryResult) == 1) {
+        if($queryResult && mysqli_num_rows($queryResult) >= 1) {
             $this->disconnect();
             return $queryResult;
         } else {
@@ -133,7 +126,6 @@ class ReadableDatabase extends Database{
             return null;
         }
     }
-    
     public function getUserGroups($userid) {
         $this->connect(); // open the conection
 
@@ -148,7 +140,7 @@ class ReadableDatabase extends Database{
         
         // if query result is success and number of rows are exactly one
         // then fetch the data
-        if($queryResult && mysqli_num_rows($queryResult) == 1) {
+        if($queryResult && mysqli_num_rows($queryResult) >= 1) {
             $this->disconnect();
             return $queryResult;
         } else {
@@ -156,85 +148,4 @@ class ReadableDatabase extends Database{
             return null;
         }
     }
-    
-    /**
-     * This method will get all the menu items of a particular user
-     * a menu item is an action that a user is allowed to perform
-     * when he/she is logged in
-     * @param type $uid
-     * @return type
-     */
-    public function getActionMenu($uid) {
-        
-        $this->connect(); // conect to the database
-        
-        // run query
-        $this->myQuery = "CALL GET_ACTION_MENU('{$uid}');";
-        
-        // get details
-        $items = $this->myconn->query($this->myQuery);
-        
-        // if any error display like this
-        //echo("<br>Error description: " . mysqli_error($this->myconn));
-        $this->disconnect();
-        if($items) {
-            $menuItems = $items;
-            return $menuItems;
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-     * Get the details of a patient with the id <em>$patientId</em>
-     * @param type $patientId
-     * @return \Patient
-     */
-    public function getPatient($patientId) {
-        $this->connect(); // open the conection
-
-        // nullify the effect of escape sequences by putting \ before them
-        $pid =  $this->escapeString($patientId);
-
-        // prepare the procedure GET_USER(userid) to get the details of the user
-        $this->myQuery = "CALL SELECT_PATIENT_BY_ID('{$pid}');";
-        
-        // run the query
-        $queryResult = $this->myconn->query($this->myQuery);
-        
-        //echo mysqli_error($this->myconn);
-        
-        // if query result is success and number of rows are exactly one
-        // then fetch the data
-        if($queryResult && mysqli_num_rows($queryResult) == 1) {
-            
-            // read the details of the user and prepare a Object for him
-            $row = $queryResult->fetch_array(); // get the row that was selected from the database
-            
-            $medical_record = new MedicalRecord($row['status'], $row['bld_grp'],
-                    $row['bp'], $row['weight'], $row['pulse'], $row['resp'],
-                    $row['hb'], null);
-            $patient = new Patient($pid, $row['firstname'], $row['middle_name'], 
-                    $row['surname'], $row['dob'], $row['gender'], $row['address'],
-                    $row['mobile_no'], $row['UID'], $row['occupation'], $row['income'],
-                    $row['guardian_name'], $medical_record, null);
-            $this->disconnect();
-            return $patient;
-        } else {
-            $this->disconnect();
-            return null;
-        }    
-    }
-    
-    /**
-     * This method will get all patients details, who are being treated by
-     * the doctor with the id $doctorid, from the database
-     * and return them
-     * 
-     * Then details being fetched from the database are the recent 'visits of the patients'
-     * 
-     * @param type $doctorid
-     * @return \Patient
-     */
-    
 }

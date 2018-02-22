@@ -7,7 +7,12 @@ class accountController extends Controller{
      * This method will Redirect to login page
      */
     public function index() {
-        echo '<script>window.location(/account/login);</script>';
+        Session::start();
+        if(Session::isActive()) {
+            echo "<script>window.location('/user/index');</script>";
+        } else {
+            echo "<script>window.location('/account/login');</script>";
+        }
     }
     
     /**
@@ -20,7 +25,6 @@ class accountController extends Controller{
     public function login() {
 
         Session::start();
-        //Session::destroy();
         if(Session::isActive()) {
             echo "<script>window.location('/user/index');</script>";
         } else {
@@ -41,6 +45,8 @@ class accountController extends Controller{
     
     public function logout() {
         Session::start();
+
+
         if(Session::isActive()) {
             Session::destroy();
             echo "<script>alert('Successfully Logged out')</script>";
@@ -64,7 +70,7 @@ class accountController extends Controller{
             $sname = filter_input(INPUT_POST, 'surName', FILTER_SANITIZE_STRING);
             $aadhar = filter_input(INPUT_POST, 'aadhar', FILTER_SANITIZE_STRING);
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-            $mobile = filter_input(INPUT_POST, 'moblie', FILTER_SANITIZE_STRING);
+            $mobile = filter_input(INPUT_POST, 'mobile', FILTER_SANITIZE_STRING);
             $pword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
             $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
             $line_1 = filter_input(INPUT_POST, 'line_1', FILTER_SANITIZE_STRING);
@@ -92,7 +98,7 @@ class accountController extends Controller{
                     echo "<script>window.location('/account/login');</script>";
                 } else {
                     echo "<script>alert('Could not create user');</script>";
-                    echo "<script>window.location('/account/signup');</script>";
+                    //echo "<script>window.location('/account/signup');</script>";
                 }
                 
             }
@@ -115,7 +121,7 @@ class accountController extends Controller{
 
             if(file_exists(MODEL . 'LoginCredentials.php')) {
                 
-                require MODEL . 'LoginCredentials.php';
+                //require MODEL . 'LoginCredentials.php';
                 $loginCred = new LoginCredentials($uname, $pword);
 
                 $db = ReadableDatabase::getReadableDatabase();

@@ -8,7 +8,9 @@
         define('CONTROLLER', ROOT . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR);
         define('CORE',       ROOT . 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR);
         define('DATA',       ROOT . 'app' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
-        define('ASSETS',     VIEW . 'assets' . DIRECTORY_SEPARATOR);
+        
+        define('HOST',     'http://localhost/');
+        define('ASSETS',     HOST . 'assets' . DIRECTORY_SEPARATOR);
         define('CSS',       ASSETS . 'css' . DIRECTORY_SEPARATOR);
         define('IMAGES',       ASSETS . 'images' . DIRECTORY_SEPARATOR);
         define('JS',       ASSETS . 'js' . DIRECTORY_SEPARATOR);

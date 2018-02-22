@@ -22,6 +22,8 @@ class Application {
         require MODEL . 'Session.php';
         require MODEL . 'LoginCredentials.php';
         require MODEL . 'User.php';
+        require MODEL . 'Contact.php';
+        require MODEL . 'Group.php';
         
         // split the url and get the controller, action and parameters to the action
         $this->prepareURL();

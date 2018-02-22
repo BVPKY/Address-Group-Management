@@ -1,5 +1,4 @@
 <?php
-
 class LoginCredentials {
     // This class will hold the user name and password of a staff member
     // When a person tries to signin, the uname and pword he gives,

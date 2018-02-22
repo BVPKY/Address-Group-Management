@@ -16,13 +16,6 @@ class Controller {
         return $this->view;
     }
     
-    public function model($modelName, $data=[]) {
-        if(file_exists(MODEl . $modelName . 'php')) {
-            require MODEl . $modelName . 'php';
-            $this->model = new $modelName;
-        }
-    }
-
     /**
      * This method will append an AccountView object to the
      * view object in this class and returns that view object
@@ -33,5 +26,6 @@ class Controller {
     public function accountView($viewName, $data=[]) {
         $this -> view = new AccountView($viewName, $data);
         return $this->view;
+        
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 class AccountView extends View{
     //put your code here
     

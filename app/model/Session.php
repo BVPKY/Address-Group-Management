@@ -1,6 +1,5 @@
 <?php
 
-
 class Session {
     //put your code here
     private static $sessionStarted = false;
@@ -13,7 +12,6 @@ class Session {
         if(!self::$sessionStarted) {
             session_start();
             self::$sessionStarted = true;
-            //echo '<script>alert("Session Has Started")</script>';
         }
     }
     

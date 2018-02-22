@@ -1,3 +1,4 @@
 <?php include VIEW . 'header.phtml'; ?>
+<h1><center>Welcome Mr. <?php $user = $this->view_data['user']; echo $user->first_name; ?></center></h1>
 <?php include VIEW . 'user'.DIRECTORY_SEPARATOR.'menu.phtml'?>
 <?php include VIEW . 'footer.phtml';

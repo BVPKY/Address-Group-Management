@@ -1,5 +1,4 @@
 <?php
-
 class User {
     // Lets create the attributes of a person in protected accesss
     
