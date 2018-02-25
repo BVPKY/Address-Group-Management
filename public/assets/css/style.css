@@ -132,4 +132,9 @@ form[role=login] {
 .copyright p{
     font-size:13px;
     padding:15px 0 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+   
+    
 }
