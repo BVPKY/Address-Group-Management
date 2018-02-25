@@ -1,13 +1,7 @@
 <?php
 
-/*
- * This code is a part of Patient Tracking System for Vijayawada Govt. general Hospital project
- * This project is done by Prasad V Potluri Siddhartha Institute of Technology(a.k.a. ) PVPSIT
- * We(PVPSIT), reserve all rights to this code
- */
-
 /**
- * Description of staffController
+ * Description of userController
  *
  */
 class userController extends Controller{

@@ -98,9 +98,8 @@ class accountController extends Controller{
                     echo "<script>window.location('/account/login');</script>";
                 } else {
                     echo "<script>alert('Could not create user');</script>";
-                    //echo "<script>window.location('/account/signup');</script>";
+                    echo "<script>window.location('/account/signup');</script>";
                 }
-                
             }
             $this->view->render();
         }
