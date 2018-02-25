@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/model/WritableDatabase.php</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/model/Database.php</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/view/user/view_contacts.phtml</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/view/user/view_groups.phtml</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/model/User.php</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/view/account/signup.phtml</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/view/header.phtml</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/core/View.php</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/controller/accountController.php</file>
-            <file>file:/C:/xampp/htdocs/inmar_project/app/model/ReadableDatabase.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
